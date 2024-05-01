@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Travel Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Travel Planner</h1>
+        <form id="travelForm">
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" required><br><br>
+            <label for="budget">Budget ($):</label>
+            <input type="number" id="budget" required><br><br>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" required><br><br>
+            <label for="numDays">Number of Days:</label>
+            <input type="number" id="numDays" required><br><br>
+            <label for="interest">Interests:</label>
+            <input type="text" id="interest" required><br><br> <!-- Changed id to 'interest' -->
+
+            <button type="submit">Plan Trip</button>
+        </form>
+        <div id="tripResults" style="display: none;">
+            <h2>Trip Plan</h2>
+            <p><strong>Destination:</strong> <span id="tripDestination"></span></p>
+            <p><strong>Accommodations:</strong> <span id="tripAccommodations"></span></p>
+            <p><strong>Activities:</strong> <span id="tripActivities"></span></p>
+            <p><strong>Itinerary:</strong> <span id="tripItinerary"></span></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
