@@ -1,0 +1,22 @@
+[
+    {"name": "Agra", "location": "Agra"},
+    {"name": "Jaipur", "location": "Rajasthan"},
+    {"name": "Ahmedabad", "location": "Goa"},
+    {"name": "Delhi", "location": "Kerala"},
+    {"name": "Varanasi", "location": "Agra"},
+    {"name": "Ayodhya", "location": "Rajasthan"},
+    {"name": "Vrindavan", "location": "Goa"},
+    {"name": "Mathura", "location": "Mathura"},
+    {"name": "Prayagraj", "location": "Prayagraj"},
+    {"name": "Somnath", "location": "Somnath"},
+    {"name": "Kedarnath", "location": "Kedarnath"},
+    {"name": "Ujjain", "location": "Ujjain"},
+    {"name": "Katra", "location": "Katra"},
+    {"name": "Chitrakoot", "location": "Chitrakoot"},
+    {"name": "Puri", "location": "Puri"},
+    {"name": "Hampi", "location": "Hampi"},
+    {"name": "Rameshwaram", "location": "Rameshwaram"},
+    {"name": "Haridwar", "location": "Haridwar"},
+    {"name": "Goa", "location": "Goa"},
+    {"name": "Kerala", "location": "Kerala"}
+]

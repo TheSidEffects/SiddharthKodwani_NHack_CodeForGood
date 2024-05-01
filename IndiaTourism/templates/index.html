@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IndiaTourism</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <nav class="nav">
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="https://thesideffects.pythonanywhere.com/">AI TourPlanner</a>
+        <a href="https://WanderIndiaGPT.pythonanywhere.com/">WanderIndiaGPT</a>
+    </nav>
+    <br>
+    <div class="bodytext">
+        <h1>Welcome to IndiaTourism!</h1>
+    </div>
+    <div class="popular">
+        <p>Explore the beautiful destinations of India.</p>
+        <div id="slideshow" class="slideshow-container">
+            <img class="mySlides" src="https://wallpapercave.com/wp/wp7231448.jpg">
+            <img class="mySlides" src="https://w0.peakpx.com/wallpaper/927/239/HD-wallpaper-jaipur-rajasthan.jpg">
+            <img class="mySlides" src="https://images.unsplash.com/photo-1571536802807-30451e3955d8?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dmFyYW5hc2l8ZW58MHx8MHx8fDA%3D">
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        
+        <h2>Explore<span></span></h2>
+            <ul id="places-list"></ul>
+    </div>
+
+    <script>
+        fetch('/api/places')
+            .then(response => response.json())
+            .then(places => {
+                const placesList = document.getElementById('places-list');
+
+                function typeWriterEffect(text, delay) {
+                    return new Promise(resolve => {
+                        let index = 0;
+                        const intervalId = setInterval(() => {
+                            placesList.textContent = text.slice(0, index + 1);
+                            index++;
+                            if (index >= text.length) {
+                                clearInterval(intervalId);
+                                setTimeout(resolve, 1000);
+                            }
+                        }, delay);
+                    });
+                }
+
+                async function displayPlacesWithTypewriter(places) {
+                    for (const place of places) {
+                        const li = document.createElement('li');
+                        placesList.appendChild(li);
+                        await typeWriterEffect(place.name, 80);
+                    }
+                }
+
+                displayPlacesWithTypewriter(places);
+            });
+
+    // Slide Show
+    let slideIndex = 1;
+
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        const slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+
+    </script>
+</body>
+</html>
