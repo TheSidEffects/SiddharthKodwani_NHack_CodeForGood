@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.nav {
+    background-color: #ffcc80;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.nav a {
+    color: #aa4d00;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 21px;
+}
+
+.nav a:hover {
+    color: #677200;
+}
+
+.bodytext {
+    margin: auto;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.popular {
+    text-align: center;
+}
+
+
+#places-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+h2 { 
+    display: flex; 
+    justify-content: center; 
+    color: black;
+    padding-right: 5px;
+} 
+
+span::before { 
+    content: "Historical Landmarks:"; 
+    animation: animate infinite 48.5s; 
+    padding-left: 10px; 
+} 
+
+@keyframes animate { 
+
+    0% { 
+        content: "India's History:"; 
+    } 
+
+    50% { 
+        content: "India's Mythology:"; 
+    } 
+
+    75% { 
+        content: "God's Own Country:"; 
+    } 
+}
+
+.slideshow-container {
+    width: 50%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.mySlides {
+    width: 100%;
+    display: none;
+}
+
+/* Slideshow navigation buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.prev {
+    left: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.next {
+    right: 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

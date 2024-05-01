@@ -1,11 +1,11 @@
 document.getElementById('travelForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevent form submission
+    event.preventDefault();
 
     const destination = document.getElementById('destination').value;
     const budget = document.getElementById('budget').value;
     const startDate = document.getElementById('startDate').value;
     const numDays = document.getElementById('numDays').value;
-    const interest = document.getElementById('interest').value;  // Retrieve user's interests
+    const interest = document.getElementById('interest').value; 
 
     // Send trip planning request to backend
     fetch('/plan', {
@@ -18,7 +18,7 @@ document.getElementById('travelForm').addEventListener('submit', function(event)
             budget: budget,
             startDate: startDate,
             numDays: numDays,
-            Interest: interest  // Include the user's interests in the request payload
+            Interest: interest
         })
     })
     .then(response => response.json())

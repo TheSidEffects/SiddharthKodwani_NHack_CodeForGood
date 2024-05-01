@@ -15,13 +15,13 @@ def plan_trip():
     budget = user_preferences.get('budget')
     startDate = user_preferences.get('startDate')
     numDays = user_preferences.get('numDays')
-    interest = user_preferences.get('Interest')  # Use 'interest' (lowercase) instead of 'Interest'
+    interest = user_preferences.get('Interest') 
 
-    # Placeholder trip plan data (replace with actual data)
+    # Placeholder trip plan data (can be replace with actual data, in larger scales)
     trip_plan = {
         'destination': destination,
         'accommodations': ['Hotel A', 'Hotel B'],
-        'activities': [interest, 'Hiking'],  # Include user's interest in activities list
+        'activities': [interest, 'Hiking'],
         'itinerary': ['Day 1: Visit attractions\nDay 2: Explore',interest]
     }
 

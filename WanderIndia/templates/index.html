@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderIndiaGPT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-messages">
+            <p>Welcome! How can I help you?</p>
+        </div>
+        <form id="chat-form" onsubmit="return sendMessage(event)">
+            <input type="text" id="user-input" name="user_input" placeholder="Message WanderIndiaGPT">
+            <button type="submit" id="submit-btn">Send</button>
+        </form>
+    </div>
+
+    <script>
+        async function sendMessage(event) {
+            event.preventDefault();
+
+            const userInput = document.getElementById('user-input').value.trim();
+            if (!userInput) return;
+
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `user_input=${encodeURIComponent(userInput)}`
+            });
+
+            const responseData = await response.json();
+            const responseText = responseData.response;
+
+            const messageElement = document.createElement('p');
+            messageElement.textContent = `You: ${userInput}`;
+            document.getElementById('chat-messages').appendChild(messageElement);
+
+            const botMessageElement = document.createElement('p');
+            botMessageElement.textContent = `WanderIndiaGPT: ${responseText}`;
+            document.getElementById('chat-messages').appendChild(botMessageElement);
+
+            document.getElementById('user-input').value = '';
+        }
+    </script>
+</body>
+</html>
